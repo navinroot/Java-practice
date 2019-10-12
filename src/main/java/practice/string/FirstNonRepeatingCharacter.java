@@ -20,7 +20,7 @@ public class FirstNonRepeatingCharacter {
 
     public static void main(String[] args) {
 
-            nonRepeatingCharacter("geeksforgeek");
+            nonRepeatingCharacter("navin");
 
     }
 
