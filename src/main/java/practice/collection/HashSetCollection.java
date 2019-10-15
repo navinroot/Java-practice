@@ -17,6 +17,7 @@ public class HashSetCollection {
          *
          *  5. Time complexity
          *      add, remove, contain - 0(1)
+         *      next - 0(h/n)
          *
          *
          */

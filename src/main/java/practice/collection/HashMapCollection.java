@@ -33,11 +33,17 @@ import java.util.Set;
  * hashCode of key is used to determine the bucket that will be used to store the mapping.
  *
  * Once bucket is identified, hashCode is used to check if there is already a key with same hashCode or not.
- * If there is an existing key with same hashCode, then equals() method is used on key. If equals returns true, then value is overwritten, otherwise a new mapping is made to this singly linked list bucket. If there is no key with same hashCode then mapping is inserted into the bucket.
+ * If there is an existing key with same hashCode, then equals() method is used on key. If equals returns true,
+ * then value is overwritten, otherwise a new mapping is made to this singly linked list bucket. If there is no
+ * key with same hashCode then mapping is inserted into the bucket.
  *
  * For HashMap get operation, again key hashCode is used to determine the bucket to look for the value.
- * After bucket is identified, entries are traversed to find out the Entry using hashCode and equals method. If match is found, value is returned otherwise null is returned.
+ * After bucket is identified, entries are traversed to find out the Entry using hashCode and equals method.
+ * If match is found, value is returned otherwise null is returned.
  *
+ * 9. Time complexity
+ *      get, contains, put - 0(1)
+ *      next - 0(h/n)
  *
  */
 

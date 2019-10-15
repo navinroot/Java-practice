@@ -23,6 +23,10 @@ import java.util.Set;
  * order maintained, it is recommended to use the lighter-weight HashSet and HashMap instead.
  *
  * 7. LinkedHashSet internally uses LinkedHashMap.
+ *
+ * 8. Time complexity
+ *      add, remove, contain - 0(1)
+ *      next - 0(1)
  */
 
 
