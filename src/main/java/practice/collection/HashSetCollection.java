@@ -80,7 +80,50 @@ public class HashSetCollection {
         Set<String> synchronizedSet = Collections.synchronizedSet(new HashSet<>());
 
 
+        /** very very important
+         *
+         * Notice that HashSet was able to check for duplicate when we tried to add an element. But we can change
+         * the object values using setter methods and make it duplicate. It worked because there is no operation
+         * done on Set. This is why Immutable objects works better with Set and Map.
+         *
+         *
+         */
 
+        Set<Emp> empHashSet = new HashSet<>();
+        Emp emp =new Emp(1,"Pankaj");
+        empHashSet.add(emp);
+        empHashSet.add(new Emp(2, "David"));
+        empHashSet.add(new Emp(1, "Pankaj"));
+
+        System.out.println(empHashSet);
+
+        Emp e = new Emp(3, "Lisa");
+        Emp e1 = new Emp(3, "Lisa");
+        empHashSet.add(e);
+        System.out.println(empHashSet);
+
+        //set values to make it duplicate
+        e.setId(1);
+        System.out.println(empHashSet);
+        e.setName("Pankaj");
+        System.out.println(empHashSet);
+
+//        e.setId(3);
+//        System.out.println(empHashSet);
+//        e.setName("Lisa");
+
+        empHashSet.remove(e);
+        System.out.println(empHashSet);
+
+        Iterator<Emp> itr = empHashSet.iterator();
+        while (itr.hasNext()){
+            if(itr.next().getName().equals("Pankaj")){
+                System.out.println("ata");
+                itr.remove();
+            }
+        }
+
+        System.out.println(empHashSet);
     }
 
 
@@ -91,14 +134,25 @@ class Emp {
     private String name;
     private int id;
 
-    public Emp(int i, String n) {
-        this.id = i;
-        this.name = n;
+    public Emp( int id, String name) {
+        this.name = name;
+        this.id = id;
     }
 
-    @Override
-    public String toString(){
-        return "{"+id+","+name+"}";
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
@@ -113,5 +167,13 @@ class Emp {
     @Override
     public int hashCode() {
         return Objects.hash(name, id);
+    }
+
+    @Override
+    public String toString() {
+        return "Emp{" +
+                "name='" + name + '\'' +
+                ", id=" + id +
+                '}';
     }
 }
